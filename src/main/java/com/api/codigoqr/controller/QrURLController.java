@@ -40,6 +40,8 @@ public class QrURLController {
         outputStream.flush();
         outputStream.close();
 
+        LOGGER.debug("We create a qr-code URL Correctly");
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
