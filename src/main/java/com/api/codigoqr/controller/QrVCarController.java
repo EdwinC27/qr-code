@@ -34,7 +34,7 @@ public class QrVCarController {
     private static final Logger LOGGER = LoggerFactory.getLogger(QrVCarController.class);
 
     @Autowired
-    QrVCarService qrVCarService;
+    QrVCarService qrVCardService;
 
     @GetMapping(EndPoints.GENERATE_QR_CONTACT)
     @Operation(summary = "Generate a QR code for a contact (vCard)")
@@ -49,18 +49,21 @@ public class QrVCarController {
                                                        @RequestParam(value = "phone", required = true) String phone,
                                                        @RequestParam(value = "website", required = true) String website,
                                                        @RequestParam(value = "city", required = true) String city,
-                                                       @RequestParam(value = "country", required = true) String country) throws WriterException, IOException {
+                                                       @RequestParam(value = "country", required = true) String country,
+                                                       @RequestParam(value = "organization", required = true) String organization,
+                                                       @RequestParam(value = "jobTitle", required = true) String jobTitle,
+                                                       @RequestParam(value = "street", required = true) String street) throws WriterException, IOException {
 
-        String vCardData = qrVCarService.generateVCard(name, email, phone, website, city, country);
+        String vCardData = qrVCardService.generateVCard(name, email, phone, website, city, country, organization, jobTitle, street);
 
-        BufferedImage image = qrVCarService.generateQRCode(vCardData);
+        BufferedImage image = qrVCardService.generateQRCode(vCardData);
 
         ServletOutputStream outputStream = response.getOutputStream();
         ImageIO.write(image, "png", outputStream);
         outputStream.flush();
         outputStream.close();
 
-        LOGGER.debug("We create a qr-code VCar Correctly");
+        LOGGER.debug("We create a qr-code VCard Correctly");
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

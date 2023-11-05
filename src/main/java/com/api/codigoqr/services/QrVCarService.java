@@ -18,16 +18,17 @@ import java.util.Map;
 @Service
 public class QrVCarService {
 
-    public String generateVCard(String name, String email, String phone, String website, String city, String country) {
-        // Build the content of the business card in vCard format.
+    public String generateVCard(String name, String email, String phone, String website, String city, String country, String organization, String jobTitle, String street) {
         List<String> lines = new ArrayList<>();
         lines.add("BEGIN:VCARD");
         lines.add("VERSION:3.0");
         lines.add("FN:" + name);
+        lines.add("ORG:" + organization);
+        lines.add("TITLE:" + jobTitle);
         lines.add("EMAIL:" + email);
         lines.add("TEL:" + phone);
         lines.add("URL:" + website);
-        lines.add("ADR;TYPE=HOME:;;" + city + ";" + country);
+        lines.add("ADR;TYPE=HOME:;;" + street + ";" + city + ";" + country);
         lines.add("END:VCARD");
 
         // Combine the lines into a single chain.
