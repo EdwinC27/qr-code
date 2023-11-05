@@ -8,4 +8,5 @@ public class EndPoints {
     public static final String GENERATE_QR_EVENT = "event";
     public static final String GENERATE_QR_EMAIL = "email";
     public static final String GENERATE_QR_SMS = "sms";
+    public static final String GENERATE_QR_LOCATION = "location";
 }
