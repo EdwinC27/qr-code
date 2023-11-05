@@ -1,7 +1,7 @@
 package com.api.codigoqr.Model.Errors;
 
 public class CustomErrorResponse {
-    private int statusCode; // Agregar el código de estado
+    private int statusCode;
     private String message;
     private String details;
 
