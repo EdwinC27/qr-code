@@ -32,14 +32,13 @@ import net.fortuna.ical4j.model.property.Version;
 public class QrEventService {
 
     public String generateCalendarEvent(String eventName, String location, String startDate, String endDate) throws IOException, InvalidDateRangeException {
-        // Convertir las cadenas de fecha y hora a objetos LocalDateTime
         LocalDateTime startLocalDateTime = LocalDateTime.parse(startDate);
         LocalDateTime endLocalDateTime = LocalDateTime.parse(endDate);
 
-        // Convertir LocalDateTime a Date
         Date startDateDate = Date.from(startLocalDateTime.toInstant(ZoneOffset.UTC));
         Date endDateDate = Date.from(endLocalDateTime.toInstant(ZoneOffset.UTC));
 
+        // The end time is earlier than the start time
         if (endDateDate.before(startDateDate)) {
             throw new InvalidDateRangeException("The end time or date of the event is earlier than the start time or date.");
         }
