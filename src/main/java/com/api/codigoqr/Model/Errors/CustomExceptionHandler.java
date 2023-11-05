@@ -27,6 +27,18 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(InvalidDateRangeException.class)
+    public final ResponseEntity<CustomErrorResponse> handleInvalidDateRangeException(InvalidDateRangeException ex) {
+        CustomErrorResponse errorResponse = new CustomErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Rango de fechas inválido", ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(ICalDataNullException.class)
+    public final ResponseEntity<CustomErrorResponse> handleICalDataNullException(ICalDataNullException ex) {
+        CustomErrorResponse errorResponse = new CustomErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Error: iCalData is null", ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<CustomErrorResponse> handleGeneralException(Exception ex) {
         CustomErrorResponse errorResponse = new CustomErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Error general al generar el código QR", ex.getMessage());

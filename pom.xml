@@ -49,6 +49,13 @@
 			<artifactId>javase</artifactId>
 			<version>3.5.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.mnode.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>3.0.22</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
