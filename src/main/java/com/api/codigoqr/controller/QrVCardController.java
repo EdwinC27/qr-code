@@ -2,8 +2,7 @@ package com.api.codigoqr.controller;
 
 import com.api.codigoqr.Model.Constants.EndPoints;
 import com.api.codigoqr.Model.Errors.CustomErrorResponse;
-import com.api.codigoqr.services.QrURLService;
-import com.api.codigoqr.services.QrVCarService;
+import com.api.codigoqr.services.QrVCardService;
 import com.google.zxing.WriterException;
 import net.minidev.json.JSONObject;
 import org.slf4j.Logger;
@@ -30,11 +29,11 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping(EndPoints.BASE_URL)
-public class QrVCarController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(QrVCarController.class);
+public class QrVCardController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(QrVCardController.class);
 
     @Autowired
-    QrVCarService qrVCardService;
+    QrVCardService qrVCardService;
 
     @GetMapping(EndPoints.GENERATE_QR_CONTACT)
     @Operation(summary = "Generate a QR code for a contact (vCard)")

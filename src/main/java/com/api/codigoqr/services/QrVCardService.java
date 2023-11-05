@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class QrVCarService {
+public class QrVCardService {
 
     public String generateVCard(String name, String email, String phone, String website, String city, String country, String organization, String jobTitle, String street) {
         List<String> lines = new ArrayList<>();
