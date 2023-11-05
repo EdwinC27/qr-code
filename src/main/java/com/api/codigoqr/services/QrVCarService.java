@@ -19,7 +19,7 @@ import java.util.Map;
 public class QrVCarService {
 
     public String generateVCard(String name, String email, String phone, String website, String city, String country) {
-        // Construye el contenido de la tarjeta de visita en formato vCard.
+        // Build the content of the business card in vCard format.
         List<String> lines = new ArrayList<>();
         lines.add("BEGIN:VCARD");
         lines.add("VERSION:3.0");
@@ -30,7 +30,7 @@ public class QrVCarService {
         lines.add("ADR;TYPE=HOME:;;" + city + ";" + country);
         lines.add("END:VCARD");
 
-        // Combina las líneas en una sola cadena.
+        // Combine the lines into a single chain.
         StringBuilder vCardBuilder = new StringBuilder();
         for (String line : lines) {
             vCardBuilder.append(line);

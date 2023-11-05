@@ -52,7 +52,7 @@ public class QrEventController {
 
         String iCalData = qrEventService.generateCalendarEvent(eventName, location, startDate, endDate);
 
-
+        // it doesn't have an event
         if (iCalData == null) {
             throw new ICalDataNullException("iCalData is null");
         }
