@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  qr-code-api:
+    image: "edwinc27/qr-code-api"
+    ports:
+      - 8080:8080
